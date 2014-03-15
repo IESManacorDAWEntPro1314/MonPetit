@@ -1,0 +1,89 @@
+@startuml
+
+class EditorEscenari{
+-Escenari: Tescenari
+}
+
+class Escenari{
+-Ombres:
+-LlistObjectes:llistaObj
+}
+
+class Objecta.EleObj{
+}
+
+class Objecta.Vehicle{
+-string mides
+-float pes
+-int resistencia
+-float durada
+}
+
+class Objecta.Ajudes{
+-ArrayList{curacio,potenciador.....}
+-int cuantitat
+-int durada
+}
+
+class Objecta.Armes{
+-int Municio
+-string tipus
+-int potencia
+-int distancia
+}
+
+class Escenaris.EleEsc{
+}
+
+class Escenaris.Carrers{
+-Camins string
+-Llargada int
+-VelocidadMax int
+}
+
+class Escenaris.Edificis{
+-int [] Altura
+-int Pisos
+-boolean buit
+-EleObj[]
++AfegirObjecta()
++BorraObjecta()
+}
+
+class Escenaris.Decoracio{
+-ArrayList{Arbre, arbust, semàfor....}
+-boolean Dinamisme
+}
+
+class Personatge.ElePer{
+}
+
+class Personatge.Perfil{
+-string [] Roba
+-string [] Inventari
+-string [] Armes
++getVida
++Persona(String, float, int)
++menysVida(int)
++mesVida(int)
+moviment()
+}
+
+class Personatge.Mascota{
+moviment(Ruta)
+}
+
+EditorEscenari--> Escenari
+Escenari --> Objecta.EleObj
+Objecta.EleObj <|-- Objecta.Vehicle
+Objecta.EleObj <|-- Objecta.Ajudes
+Objecta.EleObj <|-- Objecta.Armes
+Escenari --> Escenaris.EleEsc
+Escenaris.EleEsc <|-- Escenaris.Carrers
+Escenaris.EleEsc <|-- Escenaris.Edificis
+Escenaris.EleEsc <|-- Escenaris.Decoracio
+Escenari --> Personatge.ElePer
+Personatge.ElePer <|-- Personatge.Perfil
+Personatge.ElePer <|-- Personatge.Mascota
+
+@enduml
